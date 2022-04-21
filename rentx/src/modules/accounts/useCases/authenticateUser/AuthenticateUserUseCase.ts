@@ -22,14 +22,12 @@ class AuthenticateUserUseCase {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
-      console.log('aqui');
       throw new AppError('User or email incorrect.', 400);
     }
 
     const passwordsMatch = await compare(password, user.password);
 
     if (!passwordsMatch) {
-      console.log('ali');
       throw new AppError('User or email incorrect.', 400);
     }
 
