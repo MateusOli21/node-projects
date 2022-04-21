@@ -16,7 +16,4 @@ container.registerSingleton<ISpecificationsRepository>(
   SpecificationsRepository
 );
 
-container.registerSingleton<ICarsRepository>(
-  'SpecificationsRepository',
-  CarsRepository
-);
+container.registerSingleton<ICarsRepository>('CarsRepository', CarsRepository);

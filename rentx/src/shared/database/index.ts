@@ -1,10 +1,12 @@
 import { Connection, createConnection, getConnectionOptions } from 'typeorm';
 
-export async function createPostgresConnection(): Promise<Connection> {
+export async function createPostgresConnection(
+  host = 'database'
+): Promise<Connection> {
   const postgresConnectionOptions = await getConnectionOptions();
 
   const connectionConfigs = {
-    host: 'database',
+    host,
     username: 'docker',
     password: 'postgres',
     database: 'rentx',
